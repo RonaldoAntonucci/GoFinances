@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import colors from '../../styles/colors';
+
 interface CardProps {
   total?: boolean;
 }
@@ -13,7 +15,7 @@ export const Container = styled.div`
 
 export const Title = styled.h1`
   font-size: 48px;
-  color: #3a3a3a;
+  color: ${colors.fontDark};
 `;
 
 export const CardContainer = styled.section`
@@ -24,10 +26,12 @@ export const CardContainer = styled.section`
 `;
 
 export const Card = styled.div`
-  background: ${({ total }: CardProps): string => (total ? '#FF872C' : '#fff')};
+  background: ${({ total }: CardProps): string =>
+    total ? colors.orange : colors.white};
   padding: 22px 32px;
   border-radius: 5px;
-  color: ${({ total }: CardProps): string => (total ? '#fff' : '#363F5F')};
+  color: ${({ total }: CardProps): string =>
+    total ? colors.white : colors.font};
 
   header {
     display: flex;
@@ -55,7 +59,7 @@ export const TableContainer = styled.section`
     border-spacing: 0 8px;
 
     th {
-      color: #969cb3;
+      color: ${colors.fontLight};
       font-weight: normal;
       padding: 20px 32px;
       text-align: left;
@@ -66,21 +70,21 @@ export const TableContainer = styled.section`
     td {
       padding: 20px 32px;
       border: 0;
-      background: #fff;
+      background: ${colors.white};
       font-size: 16px;
       font-weight: normal;
-      color: #969cb3;
+      color: ${colors.fontLight};
 
       &.title {
-        color: #363f5f;
+        color: ${colors.font};
       }
 
       &.income {
-        color: #12a454;
+        color: ${colors.green};
       }
 
       &.outcome {
-        color: #e83f5b;
+        color: ${colors.red};
       }
     }
 
